@@ -25,7 +25,7 @@ app.get('/', (req,res) => {
     res.send('Hi, I am Aryan, Welcome to Hotel');
 })
 
-app.use('/person', localAuthMiddleware, personRoutes);
+app.use('/person', personRoutes);
 app.use('/menu', menuItemRoutes);
 
 
