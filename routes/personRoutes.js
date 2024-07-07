@@ -58,18 +58,18 @@ router.post('/login', async (req,res) => {
 })
 
 //Profile route
-router.get('/profile',jwtAuthMiddleWare, async (req,res) => {
-    try {
+router.get('/profile', jwtAuthMiddleWare, async (req, res) => {
+    try{
         const userData = req.user;
-        console.log('User data: ', userData);
+        console.log("User Data: ", userData);
 
         const userId = userData.id;
         const user = await Person.findById(userId);
 
         res.status(200).json({user});
-    } catch (err) {
-        console.log(err);
-        res.status(500).json({error: 'Internal server error'});
+    }catch(err){
+        console.error(err);
+        res.status(500).json({ error: 'Internal Server Error' });
     }
 })
 
